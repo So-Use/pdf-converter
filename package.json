@@ -1,0 +1,14 @@
+{
+  "name": "pdf-converter",
+  "version": "1.0.0",
+  "description": "Service to render html input to PDF file",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chrome-headless-render-pdf": "1.8.0",
+    "express": "4.16.2",
+    "nodemon": "1.18.9"
+  }
+}
