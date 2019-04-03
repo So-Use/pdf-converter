@@ -28,4 +28,4 @@ app.post('/convert/pdf/', jsonParser, (req, res) => {
   })
 })
 
-app.listen(3001, () => console.log('Server listening on port 3001!'))
+app.listen(process.env.PORT || 3001, () => console.log('Server listening on port', process.env.PORT || '3001'));
