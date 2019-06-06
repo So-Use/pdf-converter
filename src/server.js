@@ -13,6 +13,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/ping', (req, res) => {
+  res.send('pong')
+})
+
 app.post('/convert/pdf/', jsonParser, (req, res) => {
   var content = req.body.content
   var name = req.body.name;
