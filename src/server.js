@@ -1,11 +1,19 @@
 const express = require('express')
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const app = express()
 const fs = require('fs');
 
 const pdf = require('./pdf.js');
 
-var jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json()
+
+app.use(function(req, res, next) {
+  const otoroshiState = req.header("Otoroshi-State")
+  if (otoroshiState) {
+    res.header("Otoroshi-State-Resp", otoroshiState)
+  }
+  next();
+});
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
