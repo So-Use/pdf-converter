@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Serli/pdf-converter.svg?branch=master)](https://travis-ci.com/Serli/pdf-converter)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
 A simple HTML to PDF converter, based on Chrome Headless and NodeJs.
 
