@@ -1,7 +1,8 @@
 # PDF Converter
 
-A simple HTML to PDF converter, based on Chrome Headless and NodeJs.
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+A simple HTML to PDF converter, based on Chrome Headless and NodeJs.
 
 ## API
 
