@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const pdf = require('./pdf.js');
 
-const jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json({limit: '10mb'})
 
 const claimSharedkey = process.env.CLAIM_SHAREDKEY;
 const otoroshiExchangeProtocolEnabled = claimSharedkey && claimSharedkey !== "";
