@@ -13,7 +13,7 @@ const generatePDF = (inputAsHTML, name, options, callback) => {
     if (err) {
       callback(err, null)
     } else {
-      RenderPDF.generateSinglePdf(`file://${pathFileName}`, outputPathFileName, options || {})
+      RenderPDF.generateSinglePdf(`file://${pathFileName}`, outputPathFileName, options || {})
         .then(() => {
           deleteSilently(pathFileName)
           callback(null, outputPathFileName)

@@ -5,7 +5,7 @@ const app = express()
 const pdf = require('./pdf.js')
 const { deleteSilently } = require('./file-utils')
 
-const jsonParser = bodyParser.json({limit: '10mb'})
+const jsonParser = bodyParser.json({ limit: '10mb' })
 
 const claimSharedkey = process.env.CLAIM_SHAREDKEY
 const otoroshiExchangeProtocolEnabled = claimSharedkey && claimSharedkey !== ''
@@ -38,7 +38,7 @@ app.post('/convert/pdf/', jsonParser, (req, res) => {
   // sample options : {paperWidth: 8.3, paperHeight: 11.7} = A4 page in inches
   // sample options : {noMargin: true} = disable default 1cm margins
   // available other options : includeBackground (include elements background), landscape (generate pdf in landscape orientation)
-  const options = req.body.options || {} 
+  const options = req.body.options || {}
   console.info(`Starting PDF generation for ${name}`)
   console.time('pdf-generation')
   pdf.generatePDF(content, name, options, (err, outputFileName) => {
@@ -49,7 +49,7 @@ app.post('/convert/pdf/', jsonParser, (req, res) => {
       console.info(`${name} generated!`)
       console.timeEnd('pdf-generation')
       const headers = {
-        'headers': {
+        headers: {
           'Content-Type': 'application/pdf'
         }
       }
