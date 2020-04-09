@@ -4,7 +4,7 @@ const RenderPDF = require('chrome-headless-render-pdf')
 
 const { deleteSilently } = require('./file-utils')
 
-const generatePDF = (inputAsHTML, name, callback) => {
+const generatePDF = (inputAsHTML, name, options, callback) => {
   const fileName = new Date().getTime()
   const pathFileName = path.resolve(__dirname, `../inputs/html/${name}-${fileName}.html`)
   const outputPathFileName = path.resolve(__dirname, `../outputs/pdf/${name}-${fileName}.pdf`)
@@ -13,7 +13,7 @@ const generatePDF = (inputAsHTML, name, callback) => {
     if (err) {
       callback(err, null)
     } else {
-      RenderPDF.generateSinglePdf(`file://${pathFileName}`, outputPathFileName, {})
+      RenderPDF.generateSinglePdf(`file://${pathFileName}`, outputPathFileName, options || {})
         .then(() => {
           deleteSilently(pathFileName)
           callback(null, outputPathFileName)

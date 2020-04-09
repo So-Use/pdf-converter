@@ -35,9 +35,13 @@ app.get('/ping', (req, res) => {
 app.post('/convert/pdf/', jsonParser, (req, res) => {
   const content = req.body.content
   const name = req.body.name
+  // sample options : {paperWidth: 8.3, paperHeight: 11.7} = A4 page in inches
+  // sample options : {noMargin: true} = disable default 1cm margins
+  // available other options : includeBackground (include elements background), landscape (generate pdf in landscape orientation)
+  const options = req.body.options || {} 
   console.info(`Starting PDF generation for ${name}`)
   console.time('pdf-generation')
-  pdf.generatePDF(content, name, (err, outputFileName) => {
+  pdf.generatePDF(content, name, options, (err, outputFileName) => {
     if (err) {
       console.error(err)
       res.status(500).send('Internal Server Error')
